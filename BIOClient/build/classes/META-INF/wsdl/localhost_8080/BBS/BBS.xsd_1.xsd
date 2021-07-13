@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.bbs.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.bbs.com/">
+
+<xs:element name="authenticate" type="tns:authenticate"/>
+
+<xs:element name="authenticateOneOne" type="tns:authenticateOneOne"/>
+
+<xs:element name="authenticateOneOneResponse" type="tns:authenticateOneOneResponse"/>
+
+<xs:element name="authenticateResponse" type="tns:authenticateResponse"/>
+
+<xs:element name="countFingerprint" type="tns:countFingerprint"/>
+
+<xs:element name="countFingerprintResponse" type="tns:countFingerprintResponse"/>
+
+<xs:element name="countPerson" type="tns:countPerson"/>
+
+<xs:element name="countPersonResponse" type="tns:countPersonResponse"/>
+
+<xs:element name="createPerson" type="tns:createPerson"/>
+
+<xs:element name="createPersonFP" type="tns:createPersonFP"/>
+
+<xs:element name="deleteAll" type="tns:deleteAll"/>
+
+<xs:element name="deleteAllResponse" type="tns:deleteAllResponse"/>
+
+<xs:element name="deletePerson" type="tns:deletePerson"/>
+
+<xs:element name="deletePersonResponse" type="tns:deletePersonResponse"/>
+
+<xs:element name="findPerson" type="tns:findPerson"/>
+
+<xs:element name="findPersonBy" type="tns:findPersonBy"/>
+
+<xs:element name="findPersonByResponse" type="tns:findPersonByResponse"/>
+
+<xs:element name="findPersonResponse" type="tns:findPersonResponse"/>
+
+<xs:element name="getMatch" type="tns:getMatch"/>
+
+<xs:element name="getMatchResponse" type="tns:getMatchResponse"/>
+
+<xs:element name="getPerson" type="tns:getPerson"/>
+
+<xs:element name="getPersonResponse" type="tns:getPersonResponse"/>
+
+<xs:element name="getTemplate" type="tns:getTemplate"/>
+
+<xs:element name="getTemplateResponse" type="tns:getTemplateResponse"/>
+
+<xs:element name="getTemplates" type="tns:getTemplates"/>
+
+<xs:element name="getTemplatesResponse" type="tns:getTemplatesResponse"/>
+
+<xs:element name="getTime" type="tns:getTime"/>
+
+<xs:element name="getTimeResponse" type="tns:getTimeResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="putFingerprint" type="tns:putFingerprint"/>
+
+<xs:element name="putFingerprintSet" type="tns:putFingerprintSet"/>
+
+<xs:complexType name="authenticateOneOne">
+<xs:sequence>
+<xs:element name="candidate" type="tns:tFingerprint" minOccurs="0"/>
+<xs:element name="applicant" type="tns:tFingerprint" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tFingerprint">
+<xs:complexContent>
+<xs:extension base="tns:tAdapter">
+<xs:sequence>
+<xs:element name="format" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="template" type="xs:base64Binary" minOccurs="0"/>
+<xs:element name="type" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="tAdapter" abstract="true">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="authenticateOneOneResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:match" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="match">
+<xs:sequence>
+<xs:element name="applicant" type="tns:tFingerprint" minOccurs="0"/>
+<xs:element name="candidate" type="tns:tFingerprint" minOccurs="0"/>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="result" type="tns:matchRESULT" minOccurs="0"/>
+<xs:element name="score" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="putFingerprintSet">
+<xs:sequence>
+<xs:element name="fingerprintset" type="tns:tFingerprint" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPerson">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPersonResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tPerson" final="extension restriction">
+<xs:complexContent>
+<xs:extension base="tns:tAdapter">
+<xs:sequence>
+<xs:element name="apellido1" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido2" type="xs:string" minOccurs="0"/>
+<xs:element name="expFecha" type="xs:string" minOccurs="0"/>
+<xs:element name="expLugar" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre1" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre2" type="xs:string" minOccurs="0"/>
+<xs:element name="particula" type="xs:string" minOccurs="0"/>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="vigencia" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="findPerson">
+<xs:sequence>
+<xs:element name="id" type="xs:anyType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPersonResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="countPerson">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="countPersonResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="countFingerprint">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="countFingerprintResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPersonFP">
+<xs:sequence>
+<xs:element name="person" type="tns:tPerson" minOccurs="0"/>
+<xs:element name="fingerprintset" type="tns:tFingerprint" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTemplate">
+<xs:sequence>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTemplateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tFingerprint" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="putFingerprint">
+<xs:sequence>
+<xs:element name="fingerprint" type="tns:tFingerprint" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePerson">
+<xs:sequence>
+<xs:element name="id" type="xs:anyType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deletePersonResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTemplates">
+<xs:sequence>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTemplatesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tFingerprint" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPersonBy">
+<xs:sequence>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre1" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre2" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido1" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findPersonByResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tPerson" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="user" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createPerson">
+<xs:sequence>
+<xs:element name="person" type="tns:tPerson" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAll">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteAllResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTime">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTimeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMatch">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getMatchResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:match" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="authenticate">
+<xs:sequence>
+<xs:element name="pin" type="xs:string" minOccurs="0"/>
+<xs:element name="fingerprintset" type="tns:tFingerprint" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="authenticateResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:match" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="matchRESULT">
+<xs:restriction base="xs:string">
+<xs:enumeration value="HIT"/>
+<xs:enumeration value="NO_HIT"/>
+<xs:enumeration value="CROSS_HIT"/>
+<xs:enumeration value="UNKNOW"/>
+<xs:enumeration value="NOT_FOUND"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

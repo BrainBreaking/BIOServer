@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/PersonWS/PersonWS?wsdl" uri="xml-resources/web-service-references/PersonWS/wsdl/localhost_8080/PersonWS/PersonWS.wsdl"/>
+    <system systemId="http://localhost:8080/PersonWS/PersonWS?xsd=1" uri="xml-resources/web-service-references/PersonWS/wsdl/localhost_8080/PersonWS/PersonWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Person/Person?wsdl" uri="xml-resources/web-service-references/Person/wsdl/localhost_8080/Person/Person.wsdl"/>
+    <system systemId="http://localhost:8080/Person/Person?xsd=1" uri="xml-resources/web-service-references/Person/wsdl/localhost_8080/Person/Person.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/PersonService/PersonService?wsdl" uri="xml-resources/web-service-references/PersonService/wsdl/localhost_8080/PersonService/PersonService.wsdl"/>
+    <system systemId="http://localhost:8080/PersonService/PersonService?xsd=1" uri="xml-resources/web-service-references/PersonService/wsdl/localhost_8080/PersonService/PersonService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/BBS/BBS?wsdl" uri="xml-resources/web-service-references/BBS/wsdl/localhost_8080/BBS/BBS.wsdl"/>
+    <system systemId="http://localhost:8080/BBS/BBS?xsd=1" uri="xml-resources/web-service-references/BBS/wsdl/localhost_8080/BBS/BBS.xsd_1.xsd"/>
+</catalog>
